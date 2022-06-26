@@ -1,0 +1,486 @@
+@import "mixins";
+@import "clases-aux";
+@import "variables";
+@import "fuentes";
+
+body{
+	font-weight: 400;
+	font-family: 'Raleway', sans-serif;
+    background-color: #212529;
+    border-bottom: $color-footer-hover solid 4.5px;
+}
+
+/*================ HEADER =========================*/
+header{
+		background-color: black;
+		text-align: center;
+		h3{
+			text-shadow: $color-footer-hover 1.2px 1px 0;
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: #ffffff;
+			padding: 1rem;
+			margin-top: 0;
+			margin-bottom: 0;
+			@media all and (max-width: 576px){
+				font-size: 1rem;
+				font-weight: 700;
+				}
+		}
+	}
+#header{	
+	.navbar{
+		background-color: rgba(33, 37, 41, .85);	
+		}
+		i{			
+			color: #fafafa;
+			transition: all .3s ease-out ;
+			&:hover{
+				color: $color-footer-hover;
+			}
+		}
+	img{
+	width: 500px; 
+		@media all and (max-width: 576px){
+		width: 355px;
+		}
+		@media all and (max-width: 461px){
+		width: 285px; 
+		}
+		@media all and (max-width: 375px){
+		width: 225px; 
+		}
+	}
+	& li{
+		transition: all .4s ease-in-out;
+		a{
+			color: #ffffff;		
+		}
+		&:hover{
+			font-weight: 700;
+			border: 1px black solid;
+			border-radius: 20px;		
+			a{
+				color: $color-footer-hover;
+			}	
+		}
+	}
+	.nav_active{
+		font-weight: 600;
+		color: $color-footer-hover;
+		text-shadow: -1px 1px 1.1px #1359c4a4;		
+	}
+}
+/*================ CAROUSEL PRESENTACION =========================*/
+#myCarousel{
+	a{
+		margin-top: 1rem;
+	}
+	h1{
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 800;
+		font-size: 4rem;
+		color: #0cacdd;
+		text-shadow: 3px 5px 2px #000000;
+		@media all and (max-width: 576px){
+			font-size: 2rem;	
+			}
+	}
+	h2{
+		color: #0cacdd;
+		text-shadow: #e0e0e0 1px 1px 0;
+		@media all and (max-width: 576px){
+			text-shadow: 3px 2px 2px #000000;	
+			}
+	}
+	a{
+		transition: .4s;
+		&:hover{			
+			border: #ffffff 3px solid;
+			opacity: .7;
+			transform: translateY(-5px);			
+		}
+	}
+	.carousel-item{
+		height: 25rem;
+		width: 100%;
+		background: #888888;
+		color: #fafafa;
+		position: relative;
+		background-position: center;
+		background-size: cover;
+		@media all and (max-width: 576px){
+			height: 17rem;	
+			}
+			img{
+			width: 100%;
+			}		
+		.container{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			padding-bottom: 3rem;
+		}
+	}
+}
+/*================ CARDS NOVEDADES =========================*/
+#novedades{
+	img{
+	width: 430px;
+	height: 250px;
+	margin: auto;
+	}
+	h3{
+		@extend .separador;
+		@extend .montserrat;
+		margin-bottom: 1rem;
+		font-size: 1.3rem;
+	}
+	h4{
+		border-top: 2px solid #000000;
+		border-bottom: 2px solid #000000;
+		text-transform: capitalize;
+		@extend .subtitulo_comun;
+		font-size: 1.9rem;
+		font-weight: 600;
+	}	
+	.card{
+	
+		max-width: 450px;
+		min-height: 450px;
+		max-height: 450px;
+		transition: .2s ease all;
+		&:hover{
+			transform: scale(1.03);
+			box-shadow: #000000 1px 1px 1px;
+		}
+	}
+	.card-body{
+		margin-top: 1px;
+	}
+}
+/*================STAFF CARDS=========================*/
+.titulo-pagina3{
+	@extend .montserrat;
+	@extend .separador;
+	font-size: 1.3rem;
+	padding: .5rem;
+	margin-bottom: 1rem;
+	}
+#cards_separador{
+	h2{
+		font-size: 2rem;
+		@extend .separador;
+		text-transform: uppercase;
+	}
+}
+#banner{
+	h3{
+		background-clip: text;
+		text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
+		font-size: 2.2rem;
+		@extend .separador;
+		background-color: #212529;
+	}
+	p{
+		font-size: 1.3rem;
+		text-align: justify;
+		strong{
+			background-clip: text;
+			text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
+			font-size: 1.6rem;
+		}
+		@media all and (max-width: 576px){
+			font-size: .9rem;
+		}
+	}
+	img{
+		border-radius: 50%;
+		width: 600px;
+		@media all and (max-width: 576px){
+			width: 450px;			
+			margin-bottom: 1rem;
+		}
+	}
+} 
+@for $i from 1 through 4{
+	.socials_staff#{$i}{
+		@extend .socials_staff; 
+		#iconos i{
+		color: map-get($colores_social, $i);
+		transition: .2s;
+		@media all and (max-width: 576px){			
+			padding: 0 .3rem;
+		}
+		&:hover{
+			transform: perspective();
+			color: map-get($hover_social, $i);
+		}
+		}
+	}
+}
+#staff_cards{
+	.row{
+		margin: auto ;
+		@media all and (max-width: 576px){
+			margin-left: 0px;
+			margin-right: 0px;
+		}
+		img{
+		border-radius: 10px;
+		@media all and (max-width: 576px){
+			margin: 1rem auto 1rem
+		}
+		}
+	}
+	h3{
+		font-weight: 600;
+		letter-spacing: 6px;
+		text-shadow: 2px 2px 0 #000000, 2px -2px 0 #35bf98, -2px 2px 0 #ea4e5e, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+		font-size: 3.5rem;
+		@media all and (max-width: 500px){
+			font-size: 2rem;
+			letter-spacing: 4px;
+		}
+		@media all and (max-width: 375px){
+			font-size: 1.8rem;
+			letter-spacing: 3px;
+		}
+	}
+	p{
+		font-size: 1.3rem;
+		@media all and (max-width: 375px){
+			font-size: 1rem;
+		}	
+	}
+}
+/*=============== HORARIOS ================================*/
+#horarios{
+	padding: 0;
+	margin-bottom: 3rem;
+	.contenedor_horarios{
+	margin-top: 2rem
+	}	
+	h5{	
+		font-size: 1.6rem;
+		@extend .separador;
+	}
+	span{
+    color: $color-footer-hover;
+    }
+	img{
+	max-height: 600px;
+	}
+	ul{
+		ol{
+			text-align: left;
+			margin: auto;		
+		}
+	}
+	p{
+		text-decoration: underline ;
+	}
+	a{
+		transition: 500ms;
+		&:hover{
+			transform: scale(1.1);
+			opacity: 0.5;
+		}
+	}
+}
+/*============== GALERIA ===============================================*/
+#galeria{
+	img {
+	max-width: 100%;
+	}		
+}
+@for $i from 1 through 4{
+	.gallery#{$i}{
+		@extend .gallery;
+		img{	
+			background-color: map-get($hover_social, $i);
+				&:hover{
+					transform: scale(1.1);
+					background-color: map-get($hover_social_deg, $i);
+				}
+			}
+		}
+	}
+@for $i from 1 through 4{
+	.titulo_gallery#{$i}{
+		@extend .separador;
+		text-shadow: 2px 2px 0 #9e3232, 3px 3px 0 #c5300bd0;
+		font-size: 3rem;
+		@media all and (max-width: 576px){
+			font-size: 1.8rem;
+		}
+	}
+}
+/*============== FORMULARIO ===============================================*/
+section{
+	article{
+		ul{
+			li{
+				i{
+					font-size: 1.5rem;
+					margin: 0 .5rem 0 auto;
+					&:hover{						
+						color: $color-footer-hover;
+					}
+				}
+				span{
+					font-size: 1.2rem;
+					a{
+						text-decoration: none;
+						cursor: pointer;
+						color: #fafafa;
+					}
+				}
+			}
+		}
+	}	
+	form{
+		background-color: rgba(0, 0, 0, .4);
+		border-radius: 9px;
+		margin-bottom: 1.6rem;		
+	}
+	h1{
+		font-size: 1.3rem;
+		text-transform: uppercase;
+		@extend .separador;
+	}
+	h2{
+		font-size: 1.6rem;
+		text-shadow: 1px 1px 1px #797979;
+	}
+	h3{
+
+		margin: 0 0 1rem;
+		@extend .separador;			
+	}
+	.pre-maps{
+		h3{
+			font-size: 2rem; 
+			@extend .separador;
+			text-transform: uppercase;	
+		}	
+	}
+	span{
+		color: $color-footer-hover;
+	}
+	#formulario_{	
+		color: #212529;
+		iframe{
+		width: 100%;
+		max-width: 900px;
+		margin-bottom: 1.5rem;				
+		}
+		.titulo-pagina2{
+			@extend .separador;
+			padding: .5rem;
+			margin-bottom: 1rem;
+			font-size: 1.3rem;
+		}
+	}
+	ul{
+		list-style: none;
+		li{
+			margin-bottom: 1.3rem;
+		}
+	}
+}
+.btn-wsp {
+    img {
+        z-index: 100;
+        position: fixed;
+        width: 3rem;
+        right: 1.3rem;
+        bottom: 5rem;
+        @media all and (min-width: 768px) {
+            width: 3.2rem;
+        }
+    }
+}
+.btn-up{
+	i{
+		color: #000000;
+		font-size: 3.25rem;
+		z-index: 100;
+		position: fixed;
+		right: 1.3rem;
+		bottom: .4rem;
+		&:hover{
+			color: $color-footer-hover;
+		}
+	}
+}
+/*========== TIENDA ====================================*/
+#productos{
+	transition: 500ms;
+	img{
+		padding-top: 1rem;
+		width: 300px;
+		height: 300px;
+		border-radius: 10%;
+		margin: auto;
+	}
+	h2{
+		text-transform: capitalize;
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+		padding: .5rem;
+		@extend .montserrat;
+		@extend .separador;
+	}
+	h5{
+		text-align: center;
+		font-weight: 700;
+		font-size: 2rem;
+		border-top: #212529 solid 1px;
+		border-bottom: #212529 solid 1px;
+	}
+	h6{
+		@extend .precios;
+		margin: 1rem 0;
+		font-size: 2rem;
+		color: #000000;
+	}
+	p{
+		margin: 0 3rem;
+	}
+	.card{	
+		transition: .2s;
+		&:hover{
+			border: $color-footer-hover 2px ridge;	
+			border-radius: 0px 0px 20px 20px;
+			transform: translateY(-10px);
+			h6{
+				transition: .5s;
+				font-size: 2.3rem;
+				color: $color-footer-hover;
+				text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
+			}
+		}
+	}
+	.card-footer{
+		text-align: center;
+	}
+	
+	button{
+		transition: all .3s ease-in-out;
+		&:hover{			
+			border: $color-footer-hover 3px solid;
+			opacity: .7;
+			transform: translateY(-5px);			
+		}
+	}
+}
+/*========== FOOTER ====================================*/
+#footer{
+    border-top: $color-footer-hover solid 4.5px;
+	text-align: center;
+	#iconos i{
+		@include links;
+		}
+	}
